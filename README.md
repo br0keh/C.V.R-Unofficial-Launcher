@@ -6,6 +6,7 @@ C.V.R Unofficial Launcher é um launcher não oficial do servidor de SAMP Cidade
 
 # - Funções extras:
   * Salvar seu código de ativação para usar quando quiser in-game.
+  * Anti-Cheat.
 
 # - Desenvolvedores:
   * Vinicius Brokeh (ViniciusBrk).
