@@ -1,4 +1,4 @@
-﻿using Hotkeys;
+using Hotkeys;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,22 +35,23 @@ namespace C.V.R_Unofficial_Launcher
         {
             WebClient wC = new WebClient();
             string versioncheck = wC.DownloadString("https://pastebin.com/raw/MNy5msdm");
-            if(versioncheck != Properties.Settings.Default.versao)
+            if (versioncheck != Properties.Settings.Default.versao)
             {
                 MessageBox.Show("Nova versão disponível: " + versioncheck);
             }
-            if(Properties.Settings.Default.servidor != "0")
+            if (Properties.Settings.Default.servidor != "0")
             {
                 comboBox1.Text = Properties.Settings.Default.servidor;
 
             }
             if (Properties.Settings.Default.gta_dir.Contains("\\") || Properties.Settings.Default.gta_dir.Contains("/"))
             {
-                
-                this.Text = "C.V.R Unnoficial Launcher v" + Properties.Settings.Default.versao.ToString() + " ["+ Properties.Settings.Default.gta_dir + "]";
-            }else
+
+                this.Text = "C.V.R Unnoficial Launcher v" + Properties.Settings.Default.versao.ToString() + " [" + Properties.Settings.Default.gta_dir + "]";
+            }
+            else
             {
-                
+
                 gtadirselect.Show();
 
                 this.Text = "C.V.R Unnoficial Launcher v" + Properties.Settings.Default.versao.ToString();
@@ -64,12 +65,13 @@ namespace C.V.R_Unofficial_Launcher
         }
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == Hotkeys.Constants.WM_HOTKEY_MSG_ID) {
+            if (m.Msg == Hotkeys.Constants.WM_HOTKEY_MSG_ID)
+            {
                 HandleHotkey();
 
 
             }
-               
+
             base.WndProc(ref m);
         }
 
@@ -83,7 +85,7 @@ namespace C.V.R_Unofficial_Launcher
             }
 
         }
-      
+
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             if (cheats.Count > 0)
@@ -168,134 +170,28 @@ namespace C.V.R_Unofficial_Launcher
                 List<string> files = DirSearch(Properties.Settings.Default.gta_dir);
                 foreach (string file in files)
                 {
-                    if (file.IndexOf("aimbot", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-
-                    }
-                    else if (file.IndexOf("teleport", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
-                    else if (file.IndexOf("SAMPFUNCS", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
-                    else if (file.IndexOf("sobeit", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
-                    else if (file.IndexOf("Sobeit", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
-                    else if (file.IndexOf("God", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
-                    else if (file.IndexOf("dgun", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
-                    else if (file.IndexOf("Cheat", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
-                    else if (file.IndexOf("hack", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
-                    else if (file.IndexOf("xiter", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
-                    else if (file.IndexOf("rapidfire", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
-                    else if (file.IndexOf("rapid", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
-                    else if (file.IndexOf("samp-funcs", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
-                    else if (file.IndexOf(".sf", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
-                    else if (file.IndexOf("carfix", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
-                    else if (file.IndexOf("mira", StringComparison.OrdinalIgnoreCase) >= 0)
-                    {
-
-                        if (cheats.Contains(file) == false)
-                        {
-                            cheats.Add(file);
-                        }
-                    }
+                    /*
+                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
+                        DETECCÃO.) 
+                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
+                        DETECCÃO.) 
+                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
+                        DETECCÃO.) 
+                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
+                        DETECCÃO.) 
+                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
+                        DETECCÃO.) 
+                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
+                        DETECCÃO.) 
+                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
+                        DETECCÃO.) 
+                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
+                        DETECCÃO.) 
+                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
+                        DETECCÃO.) 
+                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
+                        DETECCÃO.) 
+                    */
 
                 }
 
@@ -305,7 +201,7 @@ namespace C.V.R_Unofficial_Launcher
             {
 
             }
-           
+
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
