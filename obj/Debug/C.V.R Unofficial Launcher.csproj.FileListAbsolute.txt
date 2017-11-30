@@ -1,0 +1,12 @@
+c:\users\brokeh\documents\visual studio 2015\Projects\C.V.R Unofficial Launcher\C.V.R Unofficial Launcher\bin\Debug\C.V.R Unofficial Launcher.exe.config
+c:\users\brokeh\documents\visual studio 2015\Projects\C.V.R Unofficial Launcher\C.V.R Unofficial Launcher\bin\Debug\C.V.R Unofficial Launcher.exe
+c:\users\brokeh\documents\visual studio 2015\Projects\C.V.R Unofficial Launcher\C.V.R Unofficial Launcher\bin\Debug\C.V.R Unofficial Launcher.pdb
+c:\users\brokeh\documents\visual studio 2015\Projects\C.V.R Unofficial Launcher\C.V.R Unofficial Launcher\obj\Debug\C.V.R Unofficial Launcher.csprojResolveAssemblyReference.cache
+c:\users\brokeh\documents\visual studio 2015\Projects\C.V.R Unofficial Launcher\C.V.R Unofficial Launcher\obj\Debug\C.V.R_Unofficial_Launcher.Form1.resources
+c:\users\brokeh\documents\visual studio 2015\Projects\C.V.R Unofficial Launcher\C.V.R Unofficial Launcher\obj\Debug\C.V.R_Unofficial_Launcher.Properties.Resources.resources
+c:\users\brokeh\documents\visual studio 2015\Projects\C.V.R Unofficial Launcher\C.V.R Unofficial Launcher\obj\Debug\C.V.R Unofficial Launcher.csproj.GenerateResource.Cache
+c:\users\brokeh\documents\visual studio 2015\Projects\C.V.R Unofficial Launcher\C.V.R Unofficial Launcher\obj\Debug\C.V.R Unofficial Launcher.exe
+c:\users\brokeh\documents\visual studio 2015\Projects\C.V.R Unofficial Launcher\C.V.R Unofficial Launcher\obj\Debug\C.V.R Unofficial Launcher.pdb
+c:\users\brokeh\documents\visual studio 2015\Projects\C.V.R Unofficial Launcher\C.V.R Unofficial Launcher\obj\Debug\C.V.R_Unofficial_Launcher.setGtaDir.resources
+c:\users\brokeh\documents\visual studio 2015\Projects\C.V.R Unofficial Launcher\C.V.R Unofficial Launcher\obj\Debug\C.V.R_Unofficial_Launcher.Cheats.resources
+c:\users\brokeh\documents\visual studio 2015\Projects\C.V.R Unofficial Launcher\C.V.R Unofficial Launcher\obj\Debug\C.V.R_Unofficial_Launcher.Funcoes.resources
