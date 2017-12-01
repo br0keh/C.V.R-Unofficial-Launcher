@@ -33,27 +33,28 @@ namespace C.V.R_Unofficial_Launcher
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+        
+        //CHECANDO SE HÁ NOVAS VERSÕES
             WebClient wC = new WebClient();
             string versioncheck = wC.DownloadString("https://pastebin.com/raw/MNy5msdm");
-            if (versioncheck != Properties.Settings.Default.versao)
+            if(versioncheck != Properties.Settings.Default.versao)
             {
                 MessageBox.Show("Nova versão disponível: " + versioncheck);
             }
-            if (Properties.Settings.Default.servidor != "0")
+            if(Properties.Settings.Default.servidor != "0")
             {
                 comboBox1.Text = Properties.Settings.Default.servidor;
 
             }
             if (Properties.Settings.Default.gta_dir.Contains("\\") || Properties.Settings.Default.gta_dir.Contains("/"))
             {
-
-                this.Text = "C.V.R Unnoficial Launcher v" + Properties.Settings.Default.versao.ToString() + " [" + Properties.Settings.Default.gta_dir + "]";
-            }
-            else
+                //SE O PLAYER SETOU O LOCAL GTA MOSTRA ESSE
+                this.Text = "C.V.R Unnoficial Launcher v" + Properties.Settings.Default.versao.ToString() + " ["+ Properties.Settings.Default.gta_dir + "]";
+            }else
             {
-
+                
                 gtadirselect.Show();
-
+                // SE NÃO MOSTRA ESSE E ABRE O FORM DE SETAR O LOCAL
                 this.Text = "C.V.R Unnoficial Launcher v" + Properties.Settings.Default.versao.ToString();
             }
             ghk.Register();
@@ -65,16 +66,15 @@ namespace C.V.R_Unofficial_Launcher
         }
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == Hotkeys.Constants.WM_HOTKEY_MSG_ID)
-            {
+            if (m.Msg == Hotkeys.Constants.WM_HOTKEY_MSG_ID) {
                 HandleHotkey();
 
 
             }
-
+               
             base.WndProc(ref m);
         }
-
+        //SLIDER NO FORM PRINCIPAL
         private void timer1_Tick(object sender, EventArgs e)
         {
             using (pictureBox3.Image)
@@ -85,9 +85,11 @@ namespace C.V.R_Unofficial_Launcher
             }
 
         }
-
+        
+        // INICIA O JOGO
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            //VERIFICA SE HÁ CHEATS ENCONTRADOS
             if (cheats.Count > 0)
             {
                 MessageBox.Show("Cheats foram encontrados em seu jogo.");
@@ -108,6 +110,7 @@ namespace C.V.R_Unofficial_Launcher
 
                 }
 
+                //CHECA O SERVIDOR E PEGA SEU IP
                 string ip = "";
                 switch (comboBox1.Text)
                 {
@@ -135,13 +138,15 @@ namespace C.V.R_Unofficial_Launcher
                 System.Diagnostics.Process.Start(Properties.Settings.Default.gta_dir + "\\samp.exe", ip);
             }
         }
-
+    // Salva servidor mais jogado pelo player.
         private void button1_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.servidor = comboBox1.Text;
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Reload();
         }
+        
+        // Função que lista arquivos/diretorios
         private List<String> DirSearch(string sDir)
         {
             List<String> files = new List<String>();
@@ -167,31 +172,140 @@ namespace C.V.R_Unofficial_Launcher
         {
             if (Properties.Settings.Default.gta_dir.Contains("\\") || Properties.Settings.Default.gta_dir.Contains("/"))
             {
+                // Lista arquivos da pasta
                 List<string> files = DirSearch(Properties.Settings.Default.gta_dir);
                 foreach (string file in files)
-                {
-                    /*
-                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
-                        DETECCÃO.) 
-                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
-                        DETECCÃO.) 
-                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
-                        DETECCÃO.) 
-                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
-                        DETECCÃO.) 
-                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
-                        DETECCÃO.) 
-                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
-                        DETECCÃO.) 
-                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
-                        DETECCÃO.) 
-                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
-                        DETECCÃO.) 
-                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
-                        DETECCÃO.) 
-                            ESTA É A PARTE ONDE FICA O ANTICHEAT (RETIRADA PARA PROTEGER O MÉTODO DE 
-                        DETECCÃO.) 
-                    */
+                
+                
+                //Procurando Arquivos "Suspeitos"
+                    if (file.IndexOf("aimbot", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+
+                    }
+                    else if (file.IndexOf("teleport", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
+                    else if (file.IndexOf("SAMPFUNCS", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
+                    else if (file.IndexOf("sobeit", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
+                    else if (file.IndexOf("Sobeit", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
+                    else if (file.IndexOf("God", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
+                    else if (file.IndexOf("dgun", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
+                    else if (file.IndexOf("Cheat", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
+                    else if (file.IndexOf("hack", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
+                    else if (file.IndexOf("xiter", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
+                    else if (file.IndexOf("rapidfire", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
+                    else if (file.IndexOf("rapid", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
+                    else if (file.IndexOf("samp-funcs", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
+                    else if (file.IndexOf(".sf", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
+                    else if (file.IndexOf("carfix", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
+                    else if (file.IndexOf("mira", StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+
+                        if (cheats.Contains(file) == false)
+                        {
+                            cheats.Add(file);
+                        }
+                    }
 
                 }
 
@@ -201,7 +315,7 @@ namespace C.V.R_Unofficial_Launcher
             {
 
             }
-
+           
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
